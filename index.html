@@ -12,7 +12,6 @@
       --blue-primary: #0066cc;
       --blue-dark: #003478;
       --blue-light: #4da6ff;
-      --blue-glow: rgba(0, 102, 204, 0.4);
       --glass: rgba(255,255,255,0.04);
       --glass-border: rgba(255,255,255,0.08);
       --text-primary: #e8f0ff;
@@ -20,15 +19,11 @@
       --text-muted: #3a4a5a;
       --success: #00cc66;
       --danger: #ff3333;
-      --warning: #ff9900;
       --radius-lg: 24px;
       --radius-md: 14px;
       --radius-sm: 10px;
-      --shadow-blue: 0 8px 40px rgba(0,102,204,0.25);
       --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', 'Segoe UI', sans-serif;
@@ -42,37 +37,27 @@
       overflow-x: hidden;
     }
 
-    /* Animated background */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background:
         radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0,52,120,0.45) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0,80,160,0.3) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 30% at 60% 30%, rgba(0,102,204,0.15) 0%, transparent 50%);
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0,80,160,0.3) 0%, transparent 55%);
       z-index: 0;
-      animation: bgShift 12s ease-in-out infinite alternate;
-    }
-
-    @keyframes bgShift {
-      0%   { opacity: 1; }
-      100% { opacity: 0.7; }
     }
 
     body > * { position: relative; z-index: 1; }
 
-    /* ── Header ── */
     .header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 48px;
-      gap: 16px;
+      margin-bottom: 40px;
+      gap: 14px;
     }
 
     .ford-badge {
-      position: relative;
       display: inline-flex;
       align-items: center;
       gap: 12px;
@@ -80,16 +65,7 @@
       border-radius: 50px;
       background: linear-gradient(135deg, #003478 0%, #0055aa 50%, #003478 100%);
       border: 1px solid rgba(0,102,204,0.6);
-      box-shadow: 0 0 0 1px rgba(0,102,204,0.2), 0 0 40px rgba(0,102,204,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-
-    .ford-badge::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 50px;
-      background: linear-gradient(135deg, rgba(0,102,204,0.6), transparent 50%, rgba(0,102,204,0.6));
-      z-index: -1;
+      box-shadow: 0 0 40px rgba(0,102,204,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
     }
 
     .ford-logo-text {
@@ -119,7 +95,6 @@
       color: #fff;
       text-align: center;
       letter-spacing: -0.5px;
-      line-height: 1.2;
     }
 
     .header-title .accent { color: var(--blue-light); }
@@ -127,8 +102,6 @@
     .header-subtitle {
       font-size: 0.95rem;
       color: var(--text-secondary);
-      font-weight: 400;
-      letter-spacing: 0.3px;
     }
 
     .header-tags {
@@ -136,7 +109,6 @@
       gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 4px;
     }
 
     .tag {
@@ -144,13 +116,11 @@
       border-radius: 20px;
       font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.5px;
       background: rgba(77,166,255,0.1);
       border: 1px solid rgba(77,166,255,0.2);
       color: var(--blue-light);
     }
 
-    /* ── Cards ── */
     .card {
       background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
       border: 1px solid var(--glass-border);
@@ -159,7 +129,6 @@
       width: 100%;
       max-width: 860px;
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
       margin-bottom: 20px;
       transition: var(--transition);
@@ -167,13 +136,12 @@
 
     .card:hover {
       border-color: rgba(77,166,255,0.15);
-      box-shadow: 0 24px 70px rgba(0,0,0,0.5), var(--shadow-blue), inset 0 1px 0 rgba(255,255,255,0.08);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.5), 0 8px 40px rgba(0,102,204,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
     .card-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       margin-bottom: 28px;
       padding-bottom: 20px;
       border-bottom: 1px solid var(--glass-border);
@@ -201,12 +169,11 @@
       font-size: 0.9rem;
     }
 
-    /* ── Language Selectors ── */
     .lang-row {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       gap: 16px;
-      align-items: center;
+      align-items: end;
       margin-bottom: 28px;
     }
 
@@ -219,11 +186,11 @@
       align-items: center;
       justify-content: center;
       color: var(--blue-light);
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
       transition: var(--transition);
       flex-shrink: 0;
-      margin-top: 20px;
+      margin-bottom: 2px;
     }
 
     .swap-icon:hover {
@@ -242,9 +209,7 @@
       letter-spacing: 0.8px;
     }
 
-    .select-wrapper {
-      position: relative;
-    }
+    .select-wrapper { position: relative; }
 
     .select-wrapper::after {
       content: '▾';
@@ -254,7 +219,6 @@
       transform: translateY(-50%);
       color: var(--blue-light);
       pointer-events: none;
-      font-size: 0.85rem;
     }
 
     select {
@@ -281,13 +245,12 @@
 
     select option { background: #0d1b2e; color: #fff; }
 
-    /* ── Wave Visualizer ── */
     .wave-container {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 5px;
-      height: 52px;
+      height: 56px;
       margin: 8px 0 24px;
       padding: 0 20px;
       background: rgba(0,0,0,0.2);
@@ -299,7 +262,7 @@
       width: 4px;
       border-radius: 4px;
       background: linear-gradient(to top, var(--blue-primary), var(--blue-light));
-      height: 6px;
+      height: 5px;
       transition: height 0.1s;
     }
 
@@ -317,10 +280,9 @@
 
     @keyframes wave {
       0%,100% { height: 5px; opacity: 0.5; }
-      50%      { height: 34px; opacity: 1; }
+      50%      { height: 36px; opacity: 1; }
     }
 
-    /* ── Status Bar ── */
     .status-bar {
       display: flex;
       align-items: center;
@@ -342,7 +304,7 @@
       transition: all 0.3s;
     }
 
-    .status-dot.idle   { background: #334455; }
+    .status-dot.idle  { background: #334455; }
     .status-dot.active { background: var(--success); box-shadow: 0 0 0 3px rgba(0,204,102,0.2); animation: greenPulse 1.2s infinite; }
     .status-dot.error  { background: var(--danger); box-shadow: 0 0 0 3px rgba(255,50,50,0.2); }
 
@@ -351,7 +313,6 @@
       50%      { box-shadow: 0 0 0 6px rgba(0,204,102,0); }
     }
 
-    /* ── Buttons ── */
     .controls {
       display: flex;
       gap: 10px;
@@ -371,7 +332,6 @@
       font-family: inherit;
       cursor: pointer;
       transition: var(--transition);
-      letter-spacing: 0.2px;
       white-space: nowrap;
     }
 
@@ -383,12 +343,11 @@
 
     .btn-record:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(200,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+      box-shadow: 0 8px 28px rgba(200,0,0,0.5);
     }
 
     .btn-record.recording {
       background: linear-gradient(135deg, #cc5500, #ff8800);
-      box-shadow: 0 4px 20px rgba(255,100,0,0.4);
       animation: recordPulse 1.4s ease-in-out infinite;
     }
 
@@ -405,7 +364,6 @@
 
     .btn-stop:hover:not(:disabled) {
       background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.25);
       transform: translateY(-2px);
     }
 
@@ -428,7 +386,6 @@
 
     .btn-copy:hover:not(:disabled) {
       background: rgba(77,166,255,0.18);
-      border-color: rgba(77,166,255,0.4);
       transform: translateY(-2px);
     }
 
@@ -458,8 +415,11 @@
 
     button:disabled { opacity: 0.35; cursor: not-allowed; transform: none !important; }
 
-    /* ── Transcript Area ── */
-    .textarea-section { position: relative; }
+    .divider {
+      height: 1px;
+      background: var(--glass-border);
+      margin: 24px 0;
+    }
 
     .textarea-header {
       display: flex;
@@ -479,7 +439,6 @@
     .char-count {
       font-size: 0.72rem;
       color: var(--text-muted);
-      font-weight: 500;
     }
 
     textarea {
@@ -501,13 +460,11 @@
     textarea:focus {
       border-color: var(--blue-primary);
       box-shadow: 0 0 0 3px rgba(0,102,204,0.15);
-      background: rgba(0,0,0,0.35);
     }
 
     textarea::placeholder { color: var(--text-muted); }
 
-    /* ── Translation Panel ── */
-    .translation-panel { display: none; animation: fadeUp 0.45s cubic-bezier(0.4,0,0.2,1); }
+    .translation-panel { display: none; animation: fadeUp 0.4s ease; }
     .translation-panel.show { display: block; }
 
     @keyframes fadeUp {
@@ -525,15 +482,10 @@
       line-height: 1.7;
       min-height: 90px;
       white-space: pre-wrap;
-      transition: var(--transition);
     }
 
-    .translated-box.loading {
-      color: var(--text-muted);
-      font-style: italic;
-    }
+    .translated-box.loading { color: var(--text-muted); font-style: italic; }
 
-    /* ── Audio ── */
     audio {
       width: 100%;
       border-radius: 10px;
@@ -541,14 +493,22 @@
       filter: invert(1) hue-rotate(180deg);
     }
 
-    /* ── Divider ── */
-    .divider {
-      height: 1px;
-      background: var(--glass-border);
-      margin: 24px 0;
+    /* ── Error Box ── */
+    .error-box {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,50,50,0.08);
+      border: 1px solid rgba(255,50,50,0.25);
+      color: #ff9999;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
     }
 
-    /* ── Footer ── */
+    .error-box.show { display: flex; }
+
     footer {
       margin-top: 16px;
       text-align: center;
@@ -565,24 +525,15 @@
       font-size: 0.78rem;
       color: var(--text-muted);
       font-weight: 500;
-      letter-spacing: 0.3px;
     }
 
-    .footer-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--blue-primary);
-      opacity: 0.6;
-    }
-
-    /* ── Responsive ── */
     @media (max-width: 600px) {
-      .header-title { font-size: 1.5rem; }
+      .header-title { font-size: 1.4rem; }
       .lang-row { grid-template-columns: 1fr; }
       .swap-icon { display: none; }
       .controls { flex-direction: column; }
       button { justify-content: center; }
-      .card { padding: 22px 18px; }
+      .card { padding: 20px 16px; }
     }
   </style>
 </head>
@@ -613,20 +564,26 @@
       </div>
     </div>
 
+    <!-- Error Box -->
+    <div class="error-box" id="errorBox">
+      <span>⚠️</span>
+      <span id="errorText">Error</span>
+    </div>
+
+    <!-- Language Row -->
     <div class="lang-row">
       <div class="lang-group">
         <label>🗣️ Speaking Language</label>
         <div class="select-wrapper">
           <select id="speechLang">
+            <option value="de-DE">🇩🇪 German</option>
             <option value="en-US">🇺🇸 English (US)</option>
             <option value="en-GB">🇬🇧 English (UK)</option>
-            <option value="de-DE">🇩🇪 German</option>
             <option value="es-ES">🇪🇸 Spanish</option>
             <option value="fr-FR">🇫🇷 French</option>
             <option value="it-IT">🇮🇹 Italian</option>
             <option value="pt-BR">🇧🇷 Portuguese (Brazil)</option>
-            <option value="pt-PT">🇵🇹 Portuguese (Portugal)</option>
-            <option value="zh-CN">🇨🇳 Chinese (Simplified)</option>
+            <option value="zh-CN">🇨🇳 Chinese</option>
             <option value="ja-JP">🇯🇵 Japanese</option>
             <option value="ko-KR">🇰🇷 Korean</option>
             <option value="ar-SA">🇸🇦 Arabic</option>
@@ -635,19 +592,18 @@
             <option value="nl-NL">🇳🇱 Dutch</option>
             <option value="pl-PL">🇵🇱 Polish</option>
             <option value="tr-TR">🇹🇷 Turkish</option>
-            <option value="sv-SE">🇸🇪 Swedish</option>
           </select>
         </div>
       </div>
 
-      <div class="swap-icon" title="Swap languages">⇄</div>
+      <div class="swap-icon" title="Swap">⇄</div>
 
       <div class="lang-group">
         <label>🌍 Translate To</label>
         <div class="select-wrapper">
           <select id="translateLang">
-            <option value="de">🇩🇪 German</option>
             <option value="en">🇺🇸 English</option>
+            <option value="de">🇩🇪 German</option>
             <option value="es">🇪🇸 Spanish</option>
             <option value="fr">🇫🇷 French</option>
             <option value="it">🇮🇹 Italian</option>
@@ -661,7 +617,6 @@
             <option value="nl">🇳🇱 Dutch</option>
             <option value="pl">🇵🇱 Polish</option>
             <option value="tr">🇹🇷 Turkish</option>
-            <option value="sv">🇸🇪 Swedish</option>
           </select>
         </div>
       </div>
@@ -685,7 +640,7 @@
     <!-- Status -->
     <div class="status-bar">
       <div class="status-dot idle" id="statusDot"></div>
-      <span id="statusText">Ready to record — click <strong>Start Recording</strong> to begin.</span>
+      <span id="statusText">Ready — click <strong>Start Recording</strong> to begin.</span>
     </div>
 
     <!-- Controls -->
@@ -693,19 +648,19 @@
       <button class="btn-record" id="btnRecord" onclick="startRecording()">▶ Start Recording</button>
       <button class="btn-stop"   id="btnStop"   onclick="stopRecording()" disabled>⏹ Stop</button>
       <button class="btn-translate" id="btnTranslate" onclick="translateText()" disabled>🌍 Translate</button>
-      <button class="btn-copy" onclick="copyText('transcript')">📋 Copy Text</button>
-      <button class="btn-clear"   onclick="clearAll()">🗑 Clear All</button>
+      <button class="btn-copy" onclick="copyText('transcript')">📋 Copy</button>
+      <button class="btn-clear" onclick="clearAll()">🗑 Clear</button>
     </div>
 
     <div class="divider"></div>
 
     <!-- Transcript -->
-    <div class="textarea-section">
+    <div>
       <div class="textarea-header">
         <span class="textarea-label">📝 Live Transcript</span>
         <span class="char-count" id="charCount">0 characters</span>
       </div>
-      <textarea id="transcript" placeholder="Your speech will appear here in real-time as you speak... You can also type or edit manually." oninput="updateCharCount()"></textarea>
+      <textarea id="transcript" placeholder="Your speech will appear here in real-time... You can also type manually." oninput="updateCharCount()"></textarea>
     </div>
   </div>
 
@@ -743,5 +698,64 @@
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
-      <span>🔵 Ford Motor Company</span>
-      <div class="
+      🔵 Ford Motor Company &nbsp;·&nbsp; Internal Tool &nbsp;·&nbsp; Powered by Web Speech API
+    </div>
+  </footer>
+
+  <script>
+    let recognition     = null;
+    let mediaRecorder   = null;
+    let audioChunks     = [];
+    let isRecording     = false;
+    let finalTranscript = '';
+
+    const btnRecord    = document.getElementById('btnRecord');
+    const btnStop      = document.getElementById('btnStop');
+    const btnTranslate = document.getElementById('btnTranslate');
+    const statusDot    = document.getElementById('statusDot');
+    const statusText   = document.getElementById('statusText');
+    const transcriptEl = document.getElementById('transcript');
+    const charCountEl  = document.getElementById('charCount');
+    const waveBars     = document.querySelectorAll('.wave-bar');
+    const audioCard    = document.getElementById('audioCard');
+    const audioPlayback= document.getElementById('audioPlayback');
+    const downloadLink = document.getElementById('downloadLink');
+    const errorBox     = document.getElementById('errorBox');
+    const errorText    = document.getElementById('errorText');
+
+    function showError(msg) {
+      errorText.textContent = msg;
+      errorBox.classList.add('show');
+      setTimeout(() => errorBox.classList.remove('show'), 6000);
+    }
+
+    function setStatus(text, type = 'idle') {
+      statusText.innerHTML = text;
+      statusDot.className = 'status-dot ' + type;
+    }
+
+    function setWave(active) {
+      waveBars.forEach(b => active ? b.classList.add('active') : b.classList.remove('active'));
+    }
+
+    function updateCharCount() {
+      const len = transcriptEl.value.length;
+      charCountEl.textContent = len + ' character' + (len !== 1 ? 's' : '');
+      btnTranslate.disabled = len === 0;
+    }
+
+    async function startRecording() {
+      if (isRecording) return;
+
+      // Check browser support
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        showError('Speech Recognition not supported. Please use Google Chrome or Microsoft Edge.');
+        setStatus('⚠️ Browser not supported — use Chrome or Edge.', 'error');
+        return;
+      }
+
+      // Request microphone
+      let stream;
+      try {
+        stream = await navigator.mediaDevices.getUserMedia
